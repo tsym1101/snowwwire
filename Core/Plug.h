@@ -45,6 +45,22 @@ public:
 
     const T& getConstInputValue(bool* ok, int connectedIndex = 0);
 
+    /*****************************************************
+     *ファンクタの例
+    class DoSomething{
+    public:
+    bool operator()(const Plug<T>::thisType& value){
+        //do something.
+        return true;
+    }
+    };
+     *****************************************************/
+    template <class Functor>
+    bool walk(Functor& f);
+
+    template <class Functor>
+    bool fastWalk(Functor& f);
+
     void getOutputValue(T& value);
     const T& getConstOutputValue() const;
 
@@ -133,6 +149,78 @@ inline const T& Plug<T>::getConstInputValue(bool* ok, int connectedIndex) {
         *ok = true;
         return *_data;
     }
+}
+
+template <class T>
+template <class Functor>
+inline bool Plug<T>::walk(Functor& f){
+
+    bool isConnectedToNestedNodes = false;
+
+    //traverse nested nodes
+    for(auto p : _prev){
+        thisPlugType* typedPlug = static_cast<thisPlugType*>(p);
+        if(sameParent(typedPlug))continue; //check if this output plug is connected to nested output plugs
+        isConnectedToNestedNodes = true;
+        if(!typedPlug->walk(f)){
+            typedPlug->getNode()->setErrorOccurred(true);
+            return false;
+        }
+        typedPlug->getNode()->setErrorOccurred(false);
+    }//for
+
+    if(!isConnectedToNestedNodes){
+        if(!isClean() && isOutput())
+        {
+            if(!pull())return false;
+        }
+        setClean();//pushDirtyを通すため、強制clean
+        const T& value = rawValue();
+        if(!f(value)){
+            getNode()->setErrorOccurred(true);
+            return false;
+        }
+        getNode()->setErrorOccurred(false);
+        return true;
+    }
+
+    setClean();
+
+
+    return true;
+}
+
+template <class T>
+template <class Functor>
+inline bool Plug<T>::fastWalk(Functor& f){
+
+    bool isEnd = true;
+    for(auto p : _prev){
+        thisPlugType* typedPlug = static_cast<thisPlugType*>(p);
+        if(sameParent(typedPlug))continue;
+        isEnd = false;
+        if(!typedPlug->walk(f)){
+            typedPlug->getNode()->setErrorOccurred(true);
+            return false;
+        }
+        typedPlug->getNode()->setErrorOccurred(false);
+    }//for
+
+    if(isEnd){
+        //cleanでもdirtyでも関係なく。　pullしない
+
+        setClean();//pushDirtyを通すため、強制clean
+        const T& value = rawValue();
+        if(!f(value)){
+            getNode()->setErrorOccurred(true);
+            return false;
+        }
+        getNode()->setErrorOccurred(false);
+        return true;
+    }
+    setClean();
+
+    return true;
 }
 
 template <class T>

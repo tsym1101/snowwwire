@@ -7,23 +7,23 @@ SUBDIRS +=\
     Util\
     Core\
     Geom\
-#    SwwKnob\
-#    SwwNode\
-#    SwwOpenGL\
-#    SwwGui\
+    Knob\
+    Node\
+    OpenGL\
+#    Gui\
 #    plugins\
-#    SwwApp
+#    App
 
 Core.depends = Log
 Util.depends = Log
-#SwwKnob.depends = SwwUtil SwwCore SwwGeom
-#SwwNode.depends = SwwUtil SwwCore SwwGeom
-#SwwOpenGL.depends = SwwUtil SwwCore SwwGeom SwwNode
-#SwwGui.depends = SwwCore SwwGeom SwwKnob SwwOpenGL
-#plugins.depends = SwwUtil SwwCore SwwGeom SwwKnob SwwGui SwwNode SwwOpenGL
-#SwwApp.depends = SwwUtil SwwCore SwwGeom SwwKnob SwwGui SwwNode SwwOpenGL plugins
+Knob.depends = Util Core Geom
+Node.depends = Util Core Geom
+OpenGL.depends = Util Core Geom Node
+Gui.depends = Core Geom Knob OpenGL
+#plugins.depends = Util Core Geom Knob Gui Node OpenGL
+App.depends = Util Core Geom Knob Gui Node OpenGL #plugins
 
 QMAKE_CXXFLAGS += /FS
 
 HEADERS += \
-    SwwNs.h
+    Ns.h
