@@ -8,20 +8,20 @@ SUBDIRS +=\
     Core\
     Geom\
     Knob\
-    Node\
+#    Node\
     OpenGL\
-#    Gui\
+    Gui\
 #    plugins\
-#    App
+    App
 
 Core.depends = Log
 Util.depends = Log
-Knob.depends = Util Core Geom
-Node.depends = Util Core Geom
-OpenGL.depends = Util Core Geom Node
-Gui.depends = Core Geom Knob OpenGL
-#plugins.depends = Util Core Geom Knob Gui Node OpenGL
-App.depends = Util Core Geom Knob Gui Node OpenGL #plugins
+Knob.depends =  Core Geom
+#Node.depends =  Core Geom
+OpenGL.depends = Core Geom
+Gui.depends = Util Core Geom Knob OpenGL
+#plugins.depends = Core Geom Knob Gui Node OpenGL
+App.depends = Core Geom Knob Gui OpenGL #plugins
 
 QMAKE_CXXFLAGS += /FS
 

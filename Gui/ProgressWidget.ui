@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProgressWidget</class>
+ <widget class="QWidget" name="ProgressWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>396</width>
+    <height>152</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>progress</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+color: white;
+background-color: rgb(50, 50, 50);
+selection-color: white;
+selection-background-color:: rgb(180,180,0)
+}
+
+QWidget:disabled{
+color: gray;
+}
+
+QLineEdit:focus,QAbstractSpinBox:focus,QComboBox:focus,QListView:focus
+{
+    border: 2px solid rgb(180,180,0);
+}
+
+/*
+QWidget:selected{
+border-width: 2px;
+border-color: rgb(180,180,0);
+border-style: solid;
+border-radius: 3;
+}
+*/
+
+
+
+QPushButton, QLineEdit, QComboBox, QAbstractSpinBox,QListView{
+color: white;
+background-color: rgb(80, 80, 80);
+selection-color: white;
+selection-background-color:: rgb(180,180,0)
+}
+
+QPushButton, QLineEdit, QComboBox, QAbstractSpinBox ,  QTabWidget::pane,QListView{
+border-width: 1px;
+border-color: black;
+border-style: solid;
+border-radius: 3;
+}
+
+QPushButton {
+padding: 3px;
+font-size: 10px;
+padding-left: 5px;
+padding-right: 5px;
+min-width: 50px;
+max-width: 50px;
+min-height: 13px;
+max-height: 13px;
+}
+
+QPushButton:hover {
+  background-color: rgb(100,100, 100)
+}
+
+QPushButton:pressed {
+  background-color: rgb(180,180,0)
+}
+
+QLabel ,QCheckBox{
+    color: white;
+}
+
+
+QAbstractButton:disabled {
+    color:rgb(100, 100, 100) ;
+}
+
+QLineEdit  {
+background-color: rgb(70, 70, 70);
+selection-background-color: rgb(180,180,0)
+}
+
+
+ QTabWidget::tab-bar  {
+        left: 5px; 
+    }
+
+    QTabBar::tab  {
+    color: white;
+    border: 1px solid black;
+    border-bottom-color:rgb(50,50,50); 
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 3px;
+font-size: 12px;
+padding-left: 5px;
+padding-right: 5px;
+}
+  
+    QTabBar::tab:!selected  {
+    background-color: rgb(25, 25, 25);
+        margin-top: 2px; 
+    }
+
+
+
+
+QComboBox {
+padding: 3px;
+font-size: 12px;
+padding-left: 5px;
+padding-right: 5px;
+min-width: 50px;
+min-height: 13px;
+}
+     
+
+QCheckBox  {
+    spacing: 5px;
+}
+ 
+QCheckBox::indicator  {
+    width: 16px;
+    height: 16px;
+}
+ 
+QCheckBox::indicator:unchecked  {
+    image: url(:/images/checkbox_unchecked.png);
+}
+
+QCheckBox::indicator:checked:disabled  {
+    image: url(:/images/checkbox_checked_noSelect.png);
+}
+ 
+QCheckBox::indicator:checked  {
+    image: url(:/images/checkbox_checked.png);
+}
+
+QMenu
+{
+    border: 1px solid #000;
+}
+
+QMenu::item
+{
+    padding: 2px 20px 2px 20px;
+}
+
+QMenu::item:selected
+{
+    color: rgb(180,180,0);
+}
+
+QComboBox
+{
+    selection-background-color: #ffaa00;
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
+    border-style: solid;
+    border: 1px solid #1e1e1e;
+    border-radius: 5;
+}
+
+QComboBox:on
+{
+    padding-top: 3px;
+    padding-left: 4px;
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);
+}
+QComboBox:disabled
+{
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);
+}
+
+
+
+QComboBox QAbstractItemView
+{
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 3;;
+    selection-background-color:rgb(180,180,0);
+}
+
+QComboBox::drop-down
+{
+     subcontrol-origin: padding;
+     subcontrol-position: top right;
+     width: 15px;
+
+     border-left-width: 1px;
+     border-left-color: black;
+     border-left-style: solid; /* just a single line */
+     border-top-right-radius: 3px; /* same radius as the QComboBox */
+     border-bottom-right-radius: 3px;
+ }
+
+QComboBox::down-arrow
+{
+     image: url(:/images/down_arrow.png);
+}
+
+QAbstractSpinBox  {
+    padding-right: 0px; /* make room for the arrows */
+selection-background-color:: rgb(180,180,0)
+}
+ 
+
+QAbstractSpinBox::up-button  {
+    subcontrol-origin: border;
+    subcontrol-position: top right; /* position at the top right corner */
+    width: 16px; /* 16 + 2*1px border-width = 15px padding + 3px parent border */
+    border-width: 1px;
+}
+ 
+ 
+QAbstractSpinBox::up-arrow  {
+    image: url(:/images/up_arrow.png);
+    width: 7px;
+    height: 7px;
+}
+
+QAbstractSpinBox::up-arrow::pressed  {
+      image: url(:/images/up_arrow_dis.png);
+    width: 6px;
+    height: 6px;
+}
+
+ 
+
+QAbstractSpinBox::up-arrow:disabled, QAbstractSpinBox::up-arrow:off  { /* off state when value is max */
+   image: url(:/images/up_arrow_dis.png);
+}
+ 
+QAbstractSpinBox::down-button  {
+    subcontrol-origin: border;
+    subcontrol-position: bottom right; /* position at bottom right corner */
+    width: 16px;
+    border-width: 1px;
+    border-top-width:0;
+}
+ 
+ 
+QAbstractSpinBox::down-arrow  {
+    image: url(:/images/down_arrow.png);
+    width: 7px;
+    height: 7px;
+}
+
+QAbstractSpinBox::down-arrow::pressed  {
+      image: url(:/images/down_arrow_dis.png);
+    width: 6px;
+    height: 6px;
+}
+ 
+QAbstractSpinBox::down-arrow:disabled,
+QAbstractSpinBox::down-arrow:off  { /* off state when value in min */
+   image: url(:/images/down_arrow_dis.png);
+}
+     
+ QListView {
+     show-decoration-selected: 1; /* make the selection span the entire width of the view */
+ }
+
+
+ QListView::item:alternate {
+     background: #EEEEEE;
+ }
+
+ QListView::item:selected {
+     border: 1px solid #6a6ea9;
+ }
+/*
+ QListView::item:selected:!active {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #ABAFE5, stop: 1 #8588B2);
+ }
+*/
+
+ QListView::item:selected:active {
+     background:  rgb(180,180,0);
+ }
+
+/*
+ QListView::item:hover {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #FAFBFE, stop: 1 #DCDEF1);
+ }
+*/
+
+ QListView::disabled {
+     background:  rgb(50,50,50);
+ }
+
+QScrollBar:vertical {               
+    border: 1px solid #999999;
+   background: rgb(80, 80, 80);
+    width:12px;    
+    margin: 0px 0px 0px 0px;
+}
+QScrollBar::handle:vertical {
+background: rgb(80, 80, 80);
+    min-height: 0px;
+border-radius: 5;
+}
+QScrollBar::add-line:vertical {
+  background: rgb(80, 80, 80);
+    height: px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+ background: rgb(80, 80, 80);
+    height: 0px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QProgressBar
+{
+    border: 2px solid rgb(20,20,20);
+    border-radius: 2px;
+    text-align: center;
+}
+
+QProgressBar::chunk
+{
+    background-color: rgb(160,160,160);
+    /*width: 5px;
+    margin: 0.5px
+*/;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>execute from</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelStartFrame">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>to</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelEndFrame">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelNodeName">
+       <property name="text">
+        <string>:nodename</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>current:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelCurrentFrame">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QProgressBar" name="progressBar">
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

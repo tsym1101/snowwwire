@@ -54,13 +54,13 @@ std::string JsonSerializer::serializeRoot(Sww::Core::RootNode* rootNode)const{
         SwwJson jProj;
         SwwJson j;
 
-        j["version"] = Sww::Core::dsVersionStr();
+        j["version"] = Sww::Core::SwwVersionStr();
         j["frameRange"] = {rootNode->startFrame(),rootNode->endFrame()};
         SwwJson jChildren;
         serializeChildren(rootNode,jChildren);
         j["$root"] = jChildren;
 
-        jProj["ds_project"] = j;
+        jProj["sww_project"] = j;
 
         return jProj.dump(2);
     }else{

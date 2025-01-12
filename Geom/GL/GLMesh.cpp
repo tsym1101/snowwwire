@@ -19,14 +19,7 @@ GLMesh::GLMesh():_vaoId(0),_generated(false),_boundsGenerated(false),
   ,_instanceGenerated(false),_attrIdInstance(0)
   #endif
 {
-    //    if(!_shaderBounds){
-    //        bool ok = false;
-    //        _shaderBounds = SwwOpenGL::GLShaderProgramPtr(new SwwOpenGL::GLShaderProgram());
-    //        ok = _shaderBounds->createShaderProgram(":/shaders/drawBounds.vert",
-    //                                                ":/shaders/drawBounds.frag");
-    //        Q_ASSERT(ok);
-    //        //SWW_DEBUG("shader build.");
-    //    }
+
 }
 
 GLMesh::~GLMesh()

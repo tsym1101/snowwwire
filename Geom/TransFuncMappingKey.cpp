@@ -115,22 +115,6 @@ void TransFuncMappingKey::setIntensity(float i) {
     intensity_ = i;
 }
 
-//const SwwOpenGL::GLTexturePtr& TransFuncMappingKey::getTextureL() const {
-//    return texL_;
-//}
-
-//const SwwOpenGL::GLTexturePtr& TransFuncMappingKey::getTextureR() const {
-//    return texR_;
-//}
-
-//void TransFuncMappingKey::setTextureL(const SwwOpenGL::GLTexturePtr& tex) {
-//    texL_ = tex;
-//}
-
-//void TransFuncMappingKey::setTextureR(const SwwOpenGL::GLTexturePtr &tex) {
-//    texR_ = tex;
-//}
-
 const std::string& TransFuncMappingKey::getTexNameLeft() const {
     return texNameLeft_;
 }

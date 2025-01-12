@@ -1,14 +1,16 @@
 ﻿#include "IOUtility.h"
 
-
 #include <QRegExp>
 #include <QRegularExpression>
 #include <QDir>
 #include <QFileInfo>
-
+#include "SwwNsUtil.h"
 #include "Core/SwwAssert.h" //only header
+
+#ifdef USE_OIIO
 #include <OpenImageIO/imageio.h>
 #include <Imath/half.h>
+#endif
 
 #include <typeinfo>
 
@@ -17,6 +19,8 @@
 #include <VersionHelpers.h>
 #endif
 
+
+#ifdef USE_OIIO
 namespace IOUtilLocal {
 
 //local function
@@ -161,7 +165,7 @@ bool saveImage(const std::string &fileName,T* pixels,int width,int height,int ch
 }
 
 }//ns
-
+#endif
 
 SWW_UTIL_NAMESPACE_BEGIN
 
@@ -234,6 +238,7 @@ bool IOUtility::makeDir(const std::string &fileName)
     return true;
 }
 
+#ifdef USE_OIIO
 bool IOUtility::saveImage(const std::string &fileName,float* pixels, int width,int height,int channels,bool flip,
                           OIIO_NAMESPACE::TypeDesc desc)
 {
@@ -302,5 +307,6 @@ bool IOUtility::initOiio(){
 
     return true;
 }
+#endif
 
 SWW_UTIL_NAMESPACE_END

@@ -5,6 +5,7 @@
 #include "Core/SwwMacro.h"
 #include "Core/Node.h"
 #include "Geom/Lines.h"
+#include "Geom/GeomAPI.h"
 
 class QMouseEvent;
 
@@ -87,7 +88,7 @@ protected:
     bool applyTransform(Imath::M44f& target,
                         Imath::V3f trans,Imath::V3f rotate,Imath::V3f scale);
 
-    SwwGeom::LinesPlug* _oShape;
+    LinesPlug* _oShape;
     SwwGeom::Lines::Ptr _shapePtr;
 
     bool updateShape();

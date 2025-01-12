@@ -4,7 +4,7 @@
 #include <memory> // std::unique_ptr
 #include <half.h>
 #include <Core/SwwMacro.h>
-#include "Util/IOUtility.h"
+//#include "Util/IOUtility.h"
 #include "Core/Plug.h"
 
 namespace SwwGeom {
@@ -33,6 +33,7 @@ public:
         return result;
     }
 
+#if 0
     bool saveImage(const std::string& fileName, bool flip = false,
                    OIIO_NAMESPACE::TypeDesc desc = Sww::Util::IOUtility::getOiioTypeDesc<BIT_DEPTH_T>()) const {
         BIT_DEPTH_T* pixels = _pixels.get();
@@ -67,6 +68,7 @@ public:
         } else
             return 3;
     }
+#endif
 
 private:
     std::unique_ptr<BIT_DEPTH_T[]> _pixels;

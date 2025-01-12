@@ -30,10 +30,16 @@ SOURCES += \
     PlugRegister.cpp \
     Meta.cpp \
     Chainable.cpp \
-    NodeBase.cpp
+    NodeBase.cpp \
+#    Utils/IOUtility.cpp \
+#    Utils/SequenceFile.cpp
 
 HEADERS +=\
+    PlugTypeDefFwd.h \
     SwwNsCore.h \
+#    Utils/IOUtility.h \
+#    Utils/SequenceFile.h \
+#    Utils/SwwMath.h \
     VectorHelper.h \
     PlugType.h \
     PlugBase.h \

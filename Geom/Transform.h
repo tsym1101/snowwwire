@@ -2,7 +2,7 @@
 #define SWW_NDTRANSFORM_H
 
 #include "Core/Node.h"
-#include "Node/PlugTypeDefFwd.h"
+#include "Core/PlugTypeDefFwd.h"
 #include <ImathMatrix.h>
 #include "Geom/GeomAPI.h"
 

@@ -3,7 +3,7 @@
 
 #include <limits>
 #include <algorithm>
-#include "SwwNsUtil.h"
+#include "Util/SwwNsUtil.h"
 
 #ifndef MIN
     #define MIN(x,y) (((x) < (y)) ? (x) : (y))

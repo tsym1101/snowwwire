@@ -24,7 +24,11 @@ bool JsonDeserializer::deserialize(const std::string& fileName , Sww::Core::Root
     SwwJson j;
     i >> j;
 
-    SwwJson jProj = j["ds_project"];
+    SwwJson jProj = j["sww_project"];
+
+    if(!jProj.is_null()){
+        jProj = j["ds_project"]; //backward compatible
+    }
 
     if(!jProj.is_null()){
 
@@ -67,7 +71,7 @@ bool JsonDeserializer::deserialize(const std::string& fileName , Sww::Core::Root
 
     }
     else{
-        SWW_ERR("not ds");
+        SWW_ERR("not sww project");
     }
 
     return true;

@@ -68,7 +68,7 @@ void RootNode::adaptFrameRange(bool adaptToStart)
 
 bool RootNode::run(QObject* reciever, InfoToSubThread info)
 {
-    //SwwLog::setNoGuiMode();
+    //Sww::Log::setNoGuiMode();
 
     *(info.stopped) = false;
     info.end += 1;
@@ -103,7 +103,7 @@ bool RootNode::run(QObject* reciever, InfoToSubThread info)
 
     delete info.stopped;
 
-    //SwwLog::setGuiMode();
+    //Sww::Log::setGuiMode();
 
     //Q_ASSERT(0);
     return true;

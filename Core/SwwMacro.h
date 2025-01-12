@@ -5,7 +5,7 @@
 
 //ローカルスコープ内でメッセージボックスを表示するマクロ
 #define NOW_LOADING     QMessageBox messageBox(QMessageBox::NoIcon,\
-    QString("ds"),\
+    QString("sww"),\
     QString("loading image..."),\
     QMessageBox::NoButton);\
     messageBox.setStandardButtons(0);\

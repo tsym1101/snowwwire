@@ -2,7 +2,7 @@
 #define SWW_TILECAMERA_H
 
 #include "Geom/Camera.h"
-#include "Node/PlugTypeDefFwd.h"
+#include "Core/PlugTypeDefFwd.h"
 
 namespace SwwGeom {
 

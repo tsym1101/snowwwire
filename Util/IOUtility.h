@@ -4,8 +4,10 @@
 #include "Util/UtilAPI.h"
 #include <QString>
 
+#ifdef USE_OIIO
 #include <OpenImageIO/version.h>
 #include <OpenImageIO/typedesc.h>
+#endif
 #include "Core/SwwAssert.h"
 #include <QFile>
 
@@ -20,10 +22,11 @@ namespace IMATH_INTERNAL_NAMESPACE {
     class half;
 }
 using half = IMATH_INTERNAL_NAMESPACE::half;
-
+#ifdef USE_OIIO
 OIIO_NAMESPACE_BEGIN
     class ImageSpec;
 OIIO_NAMESPACE_END
+#endif
 
 SWW_UTIL_NAMESPACE_BEGIN
 class SWWUTILSHARED_EXPORT IOUtility
@@ -35,6 +38,7 @@ public:
     static std::string replaceCameraName(int num, const std::string &fileName);
     static bool makeDir(const std::string &fileName);
 
+    #ifdef USE_OIIO
     static bool saveImage(const std::string &fileName,float* pixels,  int width, int height, int channels, bool flip = false,
                           OIIO_NAMESPACE::TypeDesc desc = OIIO_NAMESPACE::TypeDesc::FLOAT);
     static bool saveImage( const std::string &fileName,unsigned char* pixels, int width, int height, int channels, bool flip = false,
@@ -63,6 +67,7 @@ public:
             return TypeDesc::UNKNOWN;
         }
     }
+#endif
 
     template <class T>
 //    static bool loadPlaneBin(const std::string &fileName, boost::shared_array<T> &array, size_t &numElements, int devide);

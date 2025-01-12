@@ -2,11 +2,11 @@
 #define SWW_ORTHCAMERA_H
 
 #include "Geom/Camera.h"
-#include "Node/PlugTypeDefFwd.h"
+#include "Core/PlugTypeDefFwd.h"
 
 namespace SwwGeom {
 
-class  OrthCamera :public SwwGeom::Camera
+class SWWGEOMSHARED_EXPORT OrthCamera :public SwwGeom::Camera
 {
 public:
     OrthCamera();

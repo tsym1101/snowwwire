@@ -121,7 +121,7 @@ QString  TransferFunctionPlug::valueToString(){
     return ptr->valueToString();
 }
 bool TransferFunctionPlug::setValueString(const QString &valueStr){
-    TransferFunctionPtr ptr(new TransFuncIntensity());
+    TransferFunctionPtr ptr(new SwwGeom::TransFuncIntensity());
     ptr->setValueString(valueStr);
     bool result = setInputValue(ptr);
     return result;

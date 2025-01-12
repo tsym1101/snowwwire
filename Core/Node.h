@@ -49,13 +49,13 @@
         }                                           \
     }
 
-namespace Sww::Gui {
+namespace SwwGui {
 class NodeGraphScene;
 class NodeItem;
 class XmlWriter;
 }
 
-namespace Sww::Test {
+namespace SwwTest {
 class UnitTest;
 }
 
@@ -82,10 +82,10 @@ public:
     friend class JsonSerializer;
     friend class JsonDeserializer;
     friend class NodeRegister;
-    friend class Sww::Gui::NodeItem;
-    friend class Sww::Gui::NodeGraphScene;
+    friend class SwwGui::NodeItem;
+    friend class SwwGui::NodeGraphScene;
     friend class ConnectDialog;
-    friend class Sww::Test::UnitTest;
+    friend class SwwTest::UnitTest;
 
     typedef DualMap<std::shared_ptr<PlugBase>> PlugBasePtrArray;
     typedef PlugBasePtrArray::thisVec PlugBasePtrVec;

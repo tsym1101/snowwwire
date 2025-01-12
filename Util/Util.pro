@@ -9,7 +9,7 @@
     error( "Couldn't find the common.pri file!" )
 }
 
-include(../external/openimageioCommon.pri)
+#include(../external/openimageioCommon.pri)
 #include(../external/proj4Common.pri)
 
 #LIBS += -L$${DESTDIR} -lSwwLog

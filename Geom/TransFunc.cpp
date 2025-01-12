@@ -25,74 +25,10 @@ int TransFunc::getNumDimensions() const {
         return 3;
 }
 
-//void TransFunc::bindUniform(GLuint programId,
-//                            const std::string &varName,
-//                            int texunit){
-//    SWW_CHECK_GL_CONTEXT;
-//    _tex->bindUniform(programId,varName,texunit);
-//}
-
-
-//void TransFunc::invalidateTexture() {
-//    textureInvalid_ = true;
-//}
-//bool TransFunc::isTextureInvalid() const {
-//    return textureInvalid_;
-//}
-
 bool TransFunc::mustResetTexture()const{
     return _mustResetTexture;
 }
 
-//void TransFunc::bind() {
-//    SWW_CHECK_GL_CONTEXT;
-//    if (textureInvalid_)
-//        updateTexture();
-
-//    _tex->bind();
-//}
-
-//void TransFunc::updateTexture() {
-
-//    if (!_tex || (Imath::V3i(_tex->width(),_tex->height(),_tex->depth()) != dimensions_))
-//        createTex();
-
-//    if (!_tex) {
-//        std::cout << "Failed to create texture" << std::endl;
-//        return;
-//    }
-
-//    //tex_->uploadTexture();
-//    //_tex->setData();
-//    _tex->uploadInternalData();
-//    textureInvalid_ = false;
-//}
-
-//void TransFunc::createTex() {
-//    SWW_CHECK_GL_CONTEXT;
-//    GLint internalFormat = GL_RGBA8;
-//    if(dataType_ == GL_FLOAT)internalFormat = GL_RGBA32F;
-
-//    _tex.reset(new SwwOpenGL::GLTexture(dimensions_.x,
-//                                       dimensions_.y,
-//                                       dimensions_.z,
-//                                       _texTarget,
-//                                       internalFormat,
-//                                       GL_RGBA,
-//                                       dataType_,
-//                                       GL_NEAREST,
-//                                       GL_CLAMP));
-
-//    _tex->allocateData();
-//    //_textureAllocated = true;
-//}
-
-//const SwwOpenGL::GLTexturePtr& TransFunc::getTexture() {
-//    if (textureInvalid_)
-//        updateTexture();
-
-//    return _tex;
-//}
 
 std::string TransFunc::getSamplerType() const {
     if (dimensions_.z > 1)
@@ -129,23 +65,5 @@ void TransFunc::resize(int width, int height, int depth) {
 const Imath::V3i &TransFunc::getDimensions() const {
     return dimensions_;
 }
-
-//GLint TransFunc::getFormat() const {
-//    return format_;
-//}
-
-//GLenum TransFunc::getTexTarget() const {
-//    return _texTarget;
-//}
-
-//void TransFunc::setTexTarget(GLenum target){
-//    Q_ASSERT_X(target == GL_TEXTURE_1D || target == GL_TEXTURE_2D
-//               ,"transfunc setTexTarget."
-//               ,"invalid target.");
-//    _texTarget = target;
-//    textureInvalid_ = true;
-//    _mustResetTexture = true;
-//}
-
 
 } // namespace voreen

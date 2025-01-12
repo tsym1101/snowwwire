@@ -1,18 +1,19 @@
 ﻿#ifndef PLUGTYPEIO_H
 #define PLUGTYPEIO_H
 
+#include <memory>
+
 #include "Geom/Mesh.h"
 #include "Geom/Points.h"
 #include "Geom/Lines.h"
-#include "Geom/Camera.h"
 #include "Geom/Light.h"
 #include "Geom/Instance.h"
-
 #include "Geom/Image.h"
-
 #include "Core/PlugType.h"
-
 #include "Geom/TransFuncIntensity.h"
+
+#include "Geom/Camera.h"
+#include "Geom/GeomAPI.h"
 
 namespace SwwGeom {
 
@@ -31,12 +32,12 @@ const SwwTypeDesc HALFIMAGE_DESC  = 0x00FF0 + 5;
 
 const SwwTypeDesc TRANSFERFUNCTION_DESC  = 0x00FF0 + 6;
 
-class SWWGEOMSHARED_EXPORT  ShapePlug : public Sww::Core::Plug<Shape::ConstPtr>
+class SWWGEOMSHARED_EXPORT  ShapePlug : public Sww::Core::Plug<SwwGeom::Shape::ConstPtr>
 {
 public :
-    typedef Shape::ConstPtr thisType;
-    ShapePlug(const std::string& name,Shape::ConstPtr data = Shape::ConstPtr())
-        :Sww::Core::Plug<Shape::ConstPtr>(name,data)
+    typedef SwwGeom::Shape::ConstPtr thisType;
+    ShapePlug(const std::string& name,SwwGeom::Shape::ConstPtr data = SwwGeom::Shape::ConstPtr())
+        :Sww::Core::Plug<SwwGeom::Shape::ConstPtr>(name,data)
     {setHidden(true);}
     virtual SwwTypeDesc getSwwTypeDesc()const{return SwwGeom::SHAPE;}
     virtual std::string getSwwTypeDescString()const{return "shape";}
@@ -45,12 +46,12 @@ public :
     DECLARE_PLUG_CREATOR(ShapePlug)
 };
 
-class SWWGEOMSHARED_EXPORT  MeshPlug : public Sww::Core::Plug<Mesh::ConstPtr>
+class SWWGEOMSHARED_EXPORT  MeshPlug : public Sww::Core::Plug<SwwGeom::Mesh::ConstPtr>
 {
 public :
-    typedef Mesh::ConstPtr thisType;
-    MeshPlug(const std::string& name,Mesh::ConstPtr data = Mesh::ConstPtr())
-        :Sww::Core::Plug<Mesh::ConstPtr>(name,data)
+    typedef SwwGeom::Mesh::ConstPtr thisType;
+    MeshPlug(const std::string& name,SwwGeom::Mesh::ConstPtr data = SwwGeom::Mesh::ConstPtr())
+        :Sww::Core::Plug<SwwGeom::Mesh::ConstPtr>(name,data)
     {setHidden(true);}
     virtual SwwTypeDesc getSwwTypeDesc()const{return SwwGeom::MESH;}
     virtual std::string getSwwTypeDescString()const{return "mesh";}
@@ -59,12 +60,12 @@ public :
     DECLARE_PLUG_CREATOR(MeshPlug)
 };
 
-class SWWGEOMSHARED_EXPORT  PointsPlug : public Sww::Core::Plug<Points::ConstPtr>
+class SWWGEOMSHARED_EXPORT  PointsPlug : public Sww::Core::Plug<SwwGeom::Points::ConstPtr>
 {
 public :
-    typedef Points::ConstPtr thisType;
-    PointsPlug(const std::string& name,Points::ConstPtr data = Points::ConstPtr())
-        :Sww::Core::Plug<Points::ConstPtr>(name,data)
+    typedef SwwGeom::Points::ConstPtr thisType;
+    PointsPlug(const std::string& name,SwwGeom::Points::ConstPtr data = SwwGeom::Points::ConstPtr())
+        :Sww::Core::Plug<SwwGeom::Points::ConstPtr>(name,data)
     {setHidden(true);}
     virtual SwwTypeDesc getSwwTypeDesc()const{return SwwGeom::POINTS;}
     virtual std::string getSwwTypeDescString()const{return "points";}
@@ -73,12 +74,12 @@ public :
     DECLARE_PLUG_CREATOR(PointsPlug)
 };
 
-class SWWGEOMSHARED_EXPORT  LinesPlug : public Sww::Core::Plug<Lines::ConstPtr>
+class SWWGEOMSHARED_EXPORT  LinesPlug : public Sww::Core::Plug<SwwGeom::Lines::ConstPtr>
 {
 public :
-    typedef Lines::ConstPtr thisType;
-    LinesPlug(const std::string& name,Lines::ConstPtr data = Lines::ConstPtr())
-        :Sww::Core::Plug<Lines::ConstPtr>(name,data)
+    typedef SwwGeom::Lines::ConstPtr thisType;
+    LinesPlug(const std::string& name,SwwGeom::Lines::ConstPtr data = SwwGeom::Lines::ConstPtr())
+        :Sww::Core::Plug<SwwGeom::Lines::ConstPtr>(name,data)
     {setHidden(true);}
     virtual SwwTypeDesc getSwwTypeDesc()const{return SwwGeom::LINES;}
     virtual std::string getSwwTypeDescString()const{return "lines";}
@@ -100,12 +101,12 @@ public :
     DECLARE_PLUG_CREATOR(CameraPlug)
 };
 
-class SWWGEOMSHARED_EXPORT LightPlug : public Sww::Core::Plug<Light::ConstPtr>
+class SWWGEOMSHARED_EXPORT LightPlug : public Sww::Core::Plug<SwwGeom::Light::ConstPtr>
 {
 public :
-    typedef Light::ConstPtr thisType;
-    LightPlug(const std::string& name,Light::ConstPtr data = Light::ConstPtr())
-        :Sww::Core::Plug<Light::ConstPtr>(name,data)
+    typedef SwwGeom::Light::ConstPtr thisType;
+    LightPlug(const std::string& name,SwwGeom::Light::ConstPtr data = SwwGeom::Light::ConstPtr())
+        :Sww::Core::Plug<SwwGeom::Light::ConstPtr>(name,data)
     {setHidden(true);}
     virtual SwwTypeDesc getSwwTypeDesc()const{return SwwGeom::LIGHT;}
     virtual std::string getSwwTypeDescString()const{return "light";}
@@ -113,12 +114,12 @@ public :
     DECLARE_PLUG_CREATOR(LightPlug)
 };
 
-class SWWGEOMSHARED_EXPORT InstancePlug : public Sww::Core::Plug<Instance::ConstPtr>
+class SWWGEOMSHARED_EXPORT InstancePlug : public Sww::Core::Plug<SwwGeom::Instance::ConstPtr>
 {
 public :
-    typedef Instance::ConstPtr thisType;
-    InstancePlug(const std::string& name,Instance::ConstPtr data = Instance::ConstPtr())
-        :Sww::Core::Plug<Instance::ConstPtr>(name,data)
+    typedef SwwGeom::Instance::ConstPtr thisType;
+    InstancePlug(const std::string& name,SwwGeom::Instance::ConstPtr data = SwwGeom::Instance::ConstPtr())
+        :Sww::Core::Plug<SwwGeom::Instance::ConstPtr>(name,data)
     {setHidden(true);}
     virtual SwwTypeDesc getSwwTypeDesc()const{return SwwGeom::INSTANCE;}
     virtual std::string getSwwTypeDescString()const{return "instance";}
@@ -127,14 +128,12 @@ public :
     DECLARE_PLUG_CREATOR(InstancePlug)
 };
 
-
-
-class  FloatImagePlug : public Sww::Core::Plug<FloatImage::ConstPtr>
+class  FloatImagePlug : public Sww::Core::Plug<SwwGeom::FloatImage::ConstPtr>
 {
 public :
-    typedef FloatImage::ConstPtr thisType;
-    FloatImagePlug(const std::string& name = "noName",FloatImage::ConstPtr data = FloatImage::ConstPtr())
-        :Sww::Core::Plug<FloatImage::ConstPtr>(name,data)
+    typedef SwwGeom::FloatImage::ConstPtr thisType;
+    FloatImagePlug(const std::string& name = "noName",SwwGeom::FloatImage::ConstPtr data = SwwGeom::FloatImage::ConstPtr())
+        :Sww::Core::Plug<SwwGeom::FloatImage::ConstPtr>(name,data)
     {setHidden(true);}
     virtual SwwTypeDesc getSwwTypeDesc()const{return FLOATIMAGE_DESC;}
     virtual std::string getSwwTypeDescString()const{return "floatImage";}
@@ -143,12 +142,12 @@ public :
     DECLARE_PLUG_CREATOR(FloatImagePlug)
 };
 
-class  ByteImagePlug : public Sww::Core::Plug<ByteImage::ConstPtr>
+class  ByteImagePlug : public Sww::Core::Plug<SwwGeom::ByteImage::ConstPtr>
 {
 public :
-    typedef ByteImage::ConstPtr thisType;
-    ByteImagePlug(const std::string& name = "noName",ByteImage::ConstPtr data = ByteImage::ConstPtr())
-        :Sww::Core::Plug<ByteImage::ConstPtr>(name,data)
+    typedef SwwGeom::ByteImage::ConstPtr thisType;
+    ByteImagePlug(const std::string& name = "noName",SwwGeom::ByteImage::ConstPtr data = SwwGeom::ByteImage::ConstPtr())
+        :Sww::Core::Plug<SwwGeom::ByteImage::ConstPtr>(name,data)
     {setHidden(true);}
     virtual SwwTypeDesc getSwwTypeDesc()const{return BYTEIMAGE_DESC;}
     virtual std::string getSwwTypeDescString()const{return "byteImage";}
@@ -156,12 +155,12 @@ public :
     DECLARE_PLUG_CREATOR(ByteImagePlug)
 };
 
-class  HalfImagePlug : public Sww::Core::Plug<HalfImage::ConstPtr>
+class  HalfImagePlug : public Sww::Core::Plug<SwwGeom::HalfImage::ConstPtr>
 {
 public :
-    typedef HalfImage::ConstPtr thisType;
-    HalfImagePlug(const std::string& name = "noName",HalfImage::ConstPtr data = HalfImage::ConstPtr())
-        :Sww::Core::Plug<HalfImage::ConstPtr>(name,data)
+    typedef SwwGeom::HalfImage::ConstPtr thisType;
+    HalfImagePlug(const std::string& name = "noName",SwwGeom::HalfImage::ConstPtr data = SwwGeom::HalfImage::ConstPtr())
+        :Sww::Core::Plug<SwwGeom::HalfImage::ConstPtr>(name,data)
     {setHidden(true);}
     virtual SwwTypeDesc getSwwTypeDesc()const{return HALFIMAGE_DESC;}
     virtual std::string getSwwTypeDescString()const{return "halfImage";}
@@ -170,12 +169,12 @@ public :
 };
 
 
-typedef std::shared_ptr<TransFuncIntensity> TransferFunctionPtr;
+typedef std::shared_ptr<SwwGeom::TransFuncIntensity> TransferFunctionPtr;
 class  SWWGEOMSHARED_EXPORT TransferFunctionPlug : public Sww::Core::Plug<TransferFunctionPtr>
 {
 public :
     TransferFunctionPlug(const std::string& name,
-                         TransferFunctionPtr data = TransferFunctionPtr(new TransFuncIntensity()));
+                         TransferFunctionPtr data = TransferFunctionPtr(new SwwGeom::TransFuncIntensity()));
     virtual SwwTypeDesc getSwwTypeDesc()const;
     virtual std::string getSwwTypeDescString()const;
     virtual Sww::Core::PlugColor getPlugColor()const;

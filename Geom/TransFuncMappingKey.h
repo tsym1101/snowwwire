@@ -30,10 +30,6 @@ public:
     void setSplit(bool split, bool useLeft=true);
     float getIntensity() const;
     void setIntensity(float i);
-//    const SwwOpenGL::GLTexturePtr& getTextureL() const;
-//    const SwwOpenGL::GLTexturePtr& getTextureR() const;
-//    void setTextureL(const SwwOpenGL::GLTexturePtr& tex);
-//    void setTextureR(const SwwOpenGL::GLTexturePtr& tex);
     const std::string& getTexNameLeft() const;
     const std::string& getTexNameRight() const;
     void setTexNameLeft(std::string& name);
@@ -50,8 +46,6 @@ private:
     float intensity_;  ///< intensity at which the key is located
     Sww::Core::V4uc colorL_; ///< color of the left part of the key
     Sww::Core::V4uc colorR_; ///< color of the right part of the key
-    //SwwOpenGL::GLTexturePtr texL_;
-    //SwwOpenGL::GLTexturePtr texR_;
     std::string texNameLeft_;
     std::string texNameRight_;
     bool split_;       ///< is the key split?

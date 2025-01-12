@@ -72,7 +72,6 @@ protected:
     GLVertexBufferObjectPtr _vboBounds;
     GLIndexBufferObjectPtr _iboBounds;
 
-    //static SwwOpenGL::GLShaderProgramPtr _shaderBounds;
 
     unsigned int _numIndices;
     GLenum _usage;

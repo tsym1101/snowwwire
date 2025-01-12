@@ -1,7 +1,7 @@
 ﻿#include "OrthCamera.h"
 #include "Core/PlugType.h"
 #include <glm/gtc/matrix_transform.hpp>
-#include <PlugTypeGeom.h>
+#include "Geom/PlugTypeGeom.h"
 
 namespace  SwwGeom{
 
